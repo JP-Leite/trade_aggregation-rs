@@ -100,8 +100,8 @@ mod tests {
 
     #[test]
     fn aligned_time_rule() {
-        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv").unwrap();
-
+        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", "XBTUSD").unwrap();
+    
         let mut aggregator = GenericAggregator::<MyCandle, AlignedTimeRule, Trade>::new(
             AlignedTimeRule::new(M15, TimestampResolution::Millisecond),
             false,
@@ -121,8 +121,8 @@ mod tests {
 
     #[test]
     fn aligned_time_rule_volume() {
-        let trades = load_trades_from_csv("data/Bitstamp_BTCEUR_1M.csv").unwrap();
-
+        let trades = load_trades_from_csv("data/Bitstamp_BTCEUR_1M.csv", "BTCEUR").unwrap();
+    
         let mut aggregator = GenericAggregator::<MyCandle, AlignedTimeRule, Trade>::new(
             AlignedTimeRule::new(M1, TimestampResolution::Microsecond),
             false,
@@ -138,16 +138,19 @@ mod tests {
     fn aligned_time_rule_trigger_on_0() {
         let trades: [Trade; 5] = [
             Trade {
+                symbol: "TEST".to_string(),  // ADD THIS LINE
                 timestamp: 1712656800000,
                 price: 100.0,
                 size: 10.0,
             },
             Trade {
+                symbol: "TEST".to_string(),  // ADD THIS LINE
                 timestamp: 1712656815000,
                 price: 101.0,
                 size: -10.0,
             },
             Trade {
+                symbol: "TEST".to_string(),  // ADD THIS LINE
                 timestamp: 1712656860000,
                 price: 100.5,
                 size: -10.0,
@@ -180,21 +183,25 @@ mod tests {
     fn aligned_time_rule_candle_with_one_trade() {
         let trades: [Trade; 4] = [
             Trade {
+                symbol: "TEST".to_string(),
                 timestamp: 1712656800000,
                 price: 100.0,
                 size: 10.0,
             },
             Trade {
+                symbol: "TEST".to_string(),
                 timestamp: 1712656815000,
                 price: 101.0,
                 size: -10.0,
             },
             Trade {
+                symbol: "TEST".to_string(),
                 timestamp: 1712656861000,
                 price: 100.5,
                 size: -10.0,
             },
             Trade {
+                symbol: "TEST".to_string(),
                 timestamp: 1712657930000,
                 price: 102.0,
                 size: -10.0,

@@ -64,6 +64,7 @@ mod tests {
         assert_eq!(
             rule.should_trigger(
                 &Trade {
+                    symbol: "TEST".to_string(),  // ADD THIS LINE
                     timestamp: 0,
                     price: 100.0,
                     size: 10.0
@@ -75,6 +76,7 @@ mod tests {
         assert_eq!(
             rule.should_trigger(
                 &Trade {
+                    symbol: "TEST".to_string(),  // ADD THIS LINE
                     timestamp: 0,
                     price: 100.5,
                     size: 10.0
@@ -86,6 +88,7 @@ mod tests {
         assert_eq!(
             rule.should_trigger(
                 &Trade {
+                    symbol: "TEST".to_string(),  // ADD THIS LINE
                     timestamp: 0,
                     price: 101.0,
                     size: 10.0
@@ -97,6 +100,7 @@ mod tests {
         assert_eq!(
             rule.should_trigger(
                 &Trade {
+                    symbol: "TEST".to_string(),  // ADD THIS LINE
                     timestamp: 0,
                     price: 100.5,
                     size: 10.0
@@ -108,6 +112,7 @@ mod tests {
         assert_eq!(
             rule.should_trigger(
                 &Trade {
+                    symbol: "TEST".to_string(),  // ADD THIS LINE
                     timestamp: 0,
                     price: 99.0,
                     size: 10.0
@@ -120,8 +125,8 @@ mod tests {
 
     #[test]
     fn relative_price_rule_real_data() {
-        let trades = load_trades_from_csv("./data/Bitmex_XBTUSD_1M.csv").expect("Unable to load trades at this path, are you sure you're in the root directory of the project?");
-
+        let trades = load_trades_from_csv("./data/Bitmex_XBTUSD_1M.csv", "XBTUSD").expect("Unable to load trades at this path, are you sure you're in the root directory of the project?");
+    
         // 0.5% candles
         const THRESHOLD: f64 = 0.005;
         let rule = RelativePriceRule::new(0.01).unwrap();
@@ -137,8 +142,8 @@ mod tests {
 
     #[test]
     fn relative_price_candles_plot() {
-        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv").unwrap();
-
+        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", "XBTUSD").unwrap();
+    
         const THRESHOLD: f64 = 0.005;
         let rule = RelativePriceRule::new(THRESHOLD).unwrap();
         let mut aggregator = GenericAggregator::<OhlcCandle, _, Trade>::new(rule, false);

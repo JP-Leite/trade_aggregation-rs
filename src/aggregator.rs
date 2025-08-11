@@ -116,7 +116,7 @@ mod tests {
 
     #[test]
     fn generic_aggregator() {
-        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv")
+        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", "XBTUSD")
             .expect("Could not load trades from file!");
 
         let rule = TimeRule::new(M1, TimestampResolution::Millisecond);

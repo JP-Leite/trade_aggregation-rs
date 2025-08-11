@@ -58,7 +58,7 @@ where
 ///
 /// # Returns
 /// If Ok, A vector of the trades inside the file
-pub fn load_trades_from_csv(filename: &str) -> Result<Vec<Trade>> {
+pub fn load_trades_from_csv(filename: &str, default_symbol: &str) -> Result<Vec<Trade>> {
     let f = File::open(filename)?;
 
     let mut r = csv::Reader::from_reader(f);
@@ -73,6 +73,7 @@ pub fn load_trades_from_csv(filename: &str) -> Result<Vec<Trade>> {
 
         // convert to Trade
         let trade = Trade {
+            symbol: default_symbol.to_string(),
             timestamp: ts,
             price,
             size,

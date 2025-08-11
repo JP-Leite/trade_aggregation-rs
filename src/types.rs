@@ -1,7 +1,8 @@
-#[derive(Default, Debug, Clone, Copy, PartialEq)]
+#[derive(Default, Debug, Clone, PartialEq)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 /// Defines a taker trade
 pub struct Trade {
+    pub symbol: String,
     /// Timestamp, assumed to be in milliseconds
     pub timestamp: i64,
 
@@ -14,6 +15,10 @@ pub struct Trade {
 }
 
 impl TakerTrade for Trade {
+    #[inline(always)]
+    fn symbol(&self) -> &str {
+        &self.symbol
+    }
     #[inline(always)]
     fn timestamp(&self) -> i64 {
         self.timestamp
@@ -46,6 +51,8 @@ pub enum By {
 
 /// Trait to enable third party types to be passed into aggregators.
 pub trait TakerTrade {
+    /// The trading symbol for this trade
+    fn symbol(&self) -> &str;
     /// The timestamp of a trade,
     fn timestamp(&self) -> i64;
 

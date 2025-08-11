@@ -44,3 +44,4 @@ chrono = ["dep:chrono"]
 
 [workspace.metadata.spellcheck]
 config = "./.spellcheck/spellcheck.toml"
+
