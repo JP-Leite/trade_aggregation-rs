@@ -80,7 +80,7 @@ struct MyCandle {
 }
 
 fn main() {
-    let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv")
+    let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", 0)
         .expect("Could not load trades from file!");
 
     // specify the aggregation rule to be time based and the resolution each trade timestamp has

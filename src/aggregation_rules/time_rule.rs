@@ -120,6 +120,7 @@ mod tests {
         let trades_micros: Vec<Trade> = trades_ms
             .iter()
             .map(|v| Trade {
+                symbol: 0,  // Add this
                 timestamp: v.timestamp * 1000,
                 price: v.price,
                 size: v.size,
@@ -128,6 +129,7 @@ mod tests {
         let trades_ns: Vec<Trade> = trades_ms
             .iter()
             .map(|v| Trade {
+                symbol: 0,  // Add this
                 timestamp: v.timestamp * 1_000_000,
                 price: v.price,
                 size: v.size,

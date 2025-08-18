@@ -55,7 +55,7 @@ fn time_aggregation_all(trades: &[Trade]) {
 
 fn criterion_benchmark(c: &mut Criterion) {
     let trades =
-        load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv").expect("Could not open trade data file!");
+        load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", 0).expect("Could not open trade data file!");
     let mut group = c.benchmark_group("time_aggregation");
     group.throughput(Throughput::Elements(1_000_000));
     group.bench_function("time_aggregation_open", |b| {

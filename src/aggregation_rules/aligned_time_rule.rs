@@ -121,7 +121,7 @@ mod tests {
 
     #[test]
     fn aligned_time_rule_volume() {
-        let trades = load_trades_from_csv("data/Bitstamp_BTCEUR_1M.csv", "BTCEUR").unwrap();
+        let trades = load_trades_from_csv("data/Bitstamp_BTCEUR_1M.csv", 0).unwrap();
     
         let mut aggregator = GenericAggregator::<MyCandle, AlignedTimeRule, Trade>::new(
             AlignedTimeRule::new(M1, TimestampResolution::Microsecond),

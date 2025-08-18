@@ -38,6 +38,10 @@ pub struct Tick {
 
 impl TakerTrade for Tick {
     #[inline(always)]
+    fn symbol(&self) -> usize {
+        0  // Just return 0 for this example
+    }
+    #[inline(always)]
     fn timestamp(&self) -> i64 {
         self.date_stamp
     }
@@ -82,7 +86,7 @@ struct MyCandle {
 }
 
 fn main() {
-    let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv")
+    let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", 0)
         .expect("Could not load trades from file!");
     let ticks: Vec<Tick> = trades.into_iter().map(|x| x.into()).collect();
 

@@ -92,7 +92,7 @@ mod tests {
     /*
     #[test]
     fn test_aggregate_all_trades() {
-        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv").unwrap();
+        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", 0).unwrap();
         let mut aggregator = GenericAggregator::new(100.0, By::Quote);
         let candles = aggregate_all_trades(&trades, &mut aggregator);
         assert!(candles.len() > 0);
