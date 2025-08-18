@@ -53,7 +53,7 @@ mod tests {
 
     #[test]
     fn tick_rule() {
-        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", "XBTUSD").unwrap();
+        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", 0).unwrap();
     
         let mut aggregator =
             GenericAggregator::<OhlcCandle, TickRule, Trade>::new(TickRule::new(1000), false);

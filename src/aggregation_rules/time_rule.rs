@@ -73,7 +73,7 @@ mod tests {
 
     #[test]
     fn time_candles_plot() {
-        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", "XBTUSD").unwrap();
+        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", 0).unwrap();
     
         let mut aggregator = GenericAggregator::<OhlcCandle, TimeRule, Trade>::new(
             TimeRule::new(M15, TimestampResolution::Millisecond),
@@ -87,7 +87,7 @@ mod tests {
 
     #[test]
     fn time_rule_differing_periods() {
-        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", "XBTUSD").unwrap();
+        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", 0).unwrap();
     
         let mut aggregator = GenericAggregator::<OhlcCandle, TimeRule, Trade>::new(
             TimeRule::new(M15, TimestampResolution::Millisecond),
@@ -114,7 +114,7 @@ mod tests {
     #[test]
     fn time_rule_differing_timestamp_resolutions() {
         // We know the XBTUSD series from Bitmex has millisecond timestamp resolution
-        let trades_ms = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", "XBTUSD").unwrap();
+        let trades_ms = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", 0).unwrap();
    
         // we can therefore transform them into seconds, microseconds and nanoseconds respectively
         let trades_micros: Vec<Trade> = trades_ms

@@ -125,7 +125,7 @@ mod tests {
 
     #[test]
     fn relative_price_rule_real_data() {
-        let trades = load_trades_from_csv("./data/Bitmex_XBTUSD_1M.csv", "XBTUSD").expect("Unable to load trades at this path, are you sure you're in the root directory of the project?");
+        let trades = load_trades_from_csv("./data/Bitmex_XBTUSD_1M.csv", 0).expect("Unable to load trades at this path, are you sure you're in the root directory of the project?");
     
         // 0.5% candles
         const THRESHOLD: f64 = 0.005;
@@ -142,7 +142,7 @@ mod tests {
 
     #[test]
     fn relative_price_candles_plot() {
-        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", "XBTUSD").unwrap();
+        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", 0).unwrap();
     
         const THRESHOLD: f64 = 0.005;
         let rule = RelativePriceRule::new(THRESHOLD).unwrap();

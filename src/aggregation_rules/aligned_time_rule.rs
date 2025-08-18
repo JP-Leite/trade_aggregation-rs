@@ -100,7 +100,7 @@ mod tests {
 
     #[test]
     fn aligned_time_rule() {
-        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", "XBTUSD").unwrap();
+        let trades = load_trades_from_csv("data/Bitmex_XBTUSD_1M.csv", 0).unwrap();
     
         let mut aggregator = GenericAggregator::<MyCandle, AlignedTimeRule, Trade>::new(
             AlignedTimeRule::new(M15, TimestampResolution::Millisecond),

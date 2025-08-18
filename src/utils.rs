@@ -58,29 +58,27 @@ where
 ///
 /// # Returns
 /// If Ok, A vector of the trades inside the file
-pub fn load_trades_from_csv(filename: &str, default_symbol: &str) -> Result<Vec<Trade>> {
+pub fn load_trades_from_csv(filename: &str, symbol_id: usize) -> Result<Vec<Trade>> {
     let f = File::open(filename)?;
-
     let mut r = csv::Reader::from_reader(f);
-
+    
     let mut out: Vec<Trade> = vec![];
     for record in r.records() {
         let row = record?;
-
+        
         let ts = row[0].parse::<i64>()?;
         let price = row[1].parse::<f64>()?;
         let size = row[2].parse::<f64>()?;
-
-        // convert to Trade
+        
         let trade = Trade {
-            default_symbol
+            symbol: symbol_id,  // Fixed: field name and using usize
             timestamp: ts,
             price,
             size,
         };
         out.push(trade);
     }
-
+    
     Ok(out)
 }
 

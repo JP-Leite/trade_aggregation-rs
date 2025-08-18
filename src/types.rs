@@ -17,7 +17,7 @@ pub struct Trade {
 impl TakerTrade for Trade {
     #[inline(always)]
     fn symbol(&self) -> usize {
-        &self.symbol
+        self.symbol
     }
     #[inline(always)]
     fn timestamp(&self) -> i64 {
