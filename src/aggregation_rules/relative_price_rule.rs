@@ -64,7 +64,7 @@ mod tests {
         assert_eq!(
             rule.should_trigger(
                 &Trade {
-                    symbol: "TEST".to_string(),  // ADD THIS LINE
+                    symbol: 0,  // ADD THIS LINE
                     timestamp: 0,
                     price: 100.0,
                     size: 10.0
@@ -76,7 +76,7 @@ mod tests {
         assert_eq!(
             rule.should_trigger(
                 &Trade {
-                    symbol: "TEST".to_string(),  // ADD THIS LINE
+                    symbol: 0,  // ADD THIS LINE
                     timestamp: 0,
                     price: 100.5,
                     size: 10.0
@@ -88,7 +88,7 @@ mod tests {
         assert_eq!(
             rule.should_trigger(
                 &Trade {
-                    symbol: "TEST".to_string(),  // ADD THIS LINE
+                    symbol: 0,  // ADD THIS LINE
                     timestamp: 0,
                     price: 101.0,
                     size: 10.0
@@ -100,7 +100,7 @@ mod tests {
         assert_eq!(
             rule.should_trigger(
                 &Trade {
-                    symbol: "TEST".to_string(),  // ADD THIS LINE
+                    symbol: 0,  // ADD THIS LINE
                     timestamp: 0,
                     price: 100.5,
                     size: 10.0
@@ -112,7 +112,7 @@ mod tests {
         assert_eq!(
             rule.should_trigger(
                 &Trade {
-                    symbol: "TEST".to_string(),  // ADD THIS LINE
+                    symbol: 0,  // ADD THIS LINE
                     timestamp: 0,
                     price: 99.0,
                     size: 10.0

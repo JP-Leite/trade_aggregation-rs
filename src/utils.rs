@@ -73,7 +73,7 @@ pub fn load_trades_from_csv(filename: &str, default_symbol: &str) -> Result<Vec<
 
         // convert to Trade
         let trade = Trade {
-            symbol: default_symbol.to_string(),
+            default_symbol
             timestamp: ts,
             price,
             size,

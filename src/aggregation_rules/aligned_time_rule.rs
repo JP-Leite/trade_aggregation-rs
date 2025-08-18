@@ -138,29 +138,31 @@ mod tests {
     fn aligned_time_rule_trigger_on_0() {
         let trades: [Trade; 5] = [
             Trade {
-                symbol: "TEST".to_string(),  // ADD THIS LINE
+                symbol: 0,  // ADD THIS LINE
                 timestamp: 1712656800000,
                 price: 100.0,
                 size: 10.0,
             },
             Trade {
-                symbol: "TEST".to_string(),  // ADD THIS LINE
+                symbol: 0,  // ADD THIS LINE
                 timestamp: 1712656815000,
                 price: 101.0,
                 size: -10.0,
             },
             Trade {
-                symbol: "TEST".to_string(),  // ADD THIS LINE
+                symbol: 0,  // ADD THIS LINE
                 timestamp: 1712656860000,
                 price: 100.5,
                 size: -10.0,
             },
             Trade {
+                symbol: 0,  // ADD THIS LINE
                 timestamp: 1712656860001,
                 price: 102.0,
                 size: -10.0,
             },
             Trade {
+                symbol: 0,  // ADD THIS LINE
                 timestamp: 1712656935000,
                 price: 105.0,
                 size: -10.0,
@@ -183,25 +185,25 @@ mod tests {
     fn aligned_time_rule_candle_with_one_trade() {
         let trades: [Trade; 4] = [
             Trade {
-                symbol: "TEST".to_string(),
+                symbol: 0,
                 timestamp: 1712656800000,
                 price: 100.0,
                 size: 10.0,
             },
             Trade {
-                symbol: "TEST".to_string(),
+                symbol: 0,
                 timestamp: 1712656815000,
                 price: 101.0,
                 size: -10.0,
             },
             Trade {
-                symbol: "TEST".to_string(),
+                symbol: 0,
                 timestamp: 1712656861000,
                 price: 100.5,
                 size: -10.0,
             },
             Trade {
-                symbol: "TEST".to_string(),
+                symbol: 0,
                 timestamp: 1712657930000,
                 price: 102.0,
                 size: -10.0,
