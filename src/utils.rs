@@ -58,7 +58,7 @@ where
 ///
 /// # Returns
 /// If Ok, A vector of the trades inside the file
-pub fn load_trades_from_csv(filename: &str, symbol_id: usize) -> Result<Vec<Trade>> {
+pub fn load_trades_from_csv(filename: &str, symbol_id: u16) -> Result<Vec<Trade>> {
     let f = File::open(filename)?;
     let mut r = csv::Reader::from_reader(f);
     
