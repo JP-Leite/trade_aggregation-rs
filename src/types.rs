@@ -16,7 +16,7 @@ pub struct Trade {
 
 impl TakerTrade for Trade {
     #[inline(always)]
-    fn symbol(&self) -> usize {
+    fn symbol(&self) -> u16 {
         self.symbol
     }
     #[inline(always)]
@@ -52,7 +52,7 @@ pub enum By {
 /// Trait to enable third party types to be passed into aggregators.
 pub trait TakerTrade {
     /// The trading symbol for this trade
-    fn symbol(&self) -> usize;
+    fn symbol(&self) -> u16;
     /// The timestamp of a trade,
     fn timestamp(&self) -> i64;
 
