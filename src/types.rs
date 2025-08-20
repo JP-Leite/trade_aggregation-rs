@@ -2,7 +2,7 @@
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 /// Defines a taker trade
 pub struct Trade {
-    pub symbol: usize,
+    pub symbol: u16,
     /// Timestamp, assumed to be in milliseconds
     pub timestamp: i64,
 
